@@ -1,25 +1,27 @@
 .todo_comp {
-  background: rgb(216, 214, 214);
+  background: #F2F4F5;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 12px;
   border-radius: 12px;
   padding: 12px;
+  cursor: pointer;
 }
 .todo_comp:hover {
-  background: rgb(182, 181, 181);
+  background: #e8eaeb;
 }
 .todo_btn_wrap {
   display: flex;
   flex-direction: column;
   button {
     border: none;
+    width: 100%;
     background-color: rgb(240, 240, 240);
     display: flex;
-    justify-content: space-between  ;
     align-items: center;
     padding: 12px;
     cursor: pointer;
+    color: black;
   }
 }

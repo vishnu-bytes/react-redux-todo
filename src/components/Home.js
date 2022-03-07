@@ -18,7 +18,7 @@ const Home = ({ dispatch }) => {
   };
 
   return (
-    <div className={"wrapper"}>
+    <div >
       <form onSubmit={handleSubmit}>
         <div className="crate_todo">
           <input

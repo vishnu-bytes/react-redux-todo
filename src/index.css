@@ -50,3 +50,6 @@ button {
 .ant-popover-inner-content{
   padding: unset!important;
 }
+textarea:focus, input:focus{
+  outline: none;
+}

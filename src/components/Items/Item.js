@@ -3,13 +3,12 @@ import PropTypes from "prop-types";
 import { dltItem, edititem } from "../../actions";
 import { connect } from "react-redux";
 import { useState } from "react";
-import { Popover, Button, Modal } from "antd";
+import { Popover, Button, Modal, Tooltip } from "antd";
 import { DeleteOutlined, EditOutlined, MoreOutlined } from "@ant-design/icons";
 import "./items.scss";
 import { Link } from "react-router-dom";
 
-const Item = ({ onClick, completed, text, id, dltItem, edititem }) => {
-  const [val, setval] = useState("");
+const Item = ({ onClick, completed, text, id, dltItem }) => {
   const [visible, setvisible] = useState(false);
 
   const handleOk = () => {
@@ -18,50 +17,53 @@ const Item = ({ onClick, completed, text, id, dltItem, edititem }) => {
   };
 
   return (
-    <div className="todo_comp">
-      <li
-        onClick={onClick}
-        style={{
-          textDecoration: completed ? "line-through" : "none",
-        }}
-      >
-        {text}
-      </li>
-      <span>
-        <Popover
-          content={
-            <span className="todo_btn_wrap">
-              <button onClick={() => setvisible(true)}>
-                <DeleteOutlined />
-                Delete
-              </button>
-              <Link to={`/edit/${id}`}>
-                <button>
-                  <EditOutlined />
-                  Edit
-                </button>
-              </Link>
-            </span>
-          }
-          trigger="click"
+    <Tooltip placement="topLeft" title="Click on the text to strike off">
+      <div className="todo_comp">
+        <li
+          onClick={onClick}
+          style={{
+            textDecoration: completed ? "line-through" : "none",
+          }}
         >
-          <Button>
-            <MoreOutlined />
-          </Button>
-        </Popover>
-      </span>
-      {/* <input onChange={(val) => setval(val.target.value)}></input> */}
-      <Modal
-        title="Delete"
-        visible={visible}
-        onOk={handleOk}
-        onCancel={() => setvisible(false)}
-        okText="Delete"
-        cancelText="Cancel"
-      >
-        Are you sure you want to delete this?
-      </Modal>
-    </div>
+          {text}
+        </li>
+        <span>
+          <Popover
+            placement="right"
+            content={
+              <span className="todo_btn_wrap">
+                <button onClick={() => setvisible(true)}>
+                  <DeleteOutlined />
+                  <span style={{ paddingLeft: "8px" }}> Delete</span>
+                </button>
+                <Link to={`/edit/${id}`}>
+                  <button>
+                    <EditOutlined />
+                    <span style={{ paddingLeft: "8px" }}> Edit</span>
+                  </button>
+                </Link>
+              </span>
+            }
+            trigger="click"
+          >
+            <Button>
+              <MoreOutlined />
+            </Button>
+          </Popover>
+        </span>
+        {/* <input onChange={(val) => setval(val.target.value)}></input> */}
+        <Modal
+          title="Delete"
+          visible={visible}
+          onOk={handleOk}
+          onCancel={() => setvisible(false)}
+          okText="Delete"
+          cancelText="Cancel"
+        >
+          Are you sure you want to delete this?
+        </Modal>
+      </div>
+    </Tooltip>
   );
 };
 

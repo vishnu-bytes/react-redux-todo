@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./App.css";
-import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
+import "antd/dist/antd.min.css";
 import Home from "./Home";
 import EditData from "./EditData";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div className="wrapper">
       <div className="wrapper_content">
-        <h1>TODOS</h1>
+        <h1>ToDo List</h1>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
