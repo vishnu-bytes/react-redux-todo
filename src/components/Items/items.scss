@@ -1,0 +1,25 @@
+.todo_comp {
+  background: rgb(216, 214, 214);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  border-radius: 12px;
+  padding: 12px;
+}
+.todo_comp:hover {
+  background: rgb(182, 181, 181);
+}
+.todo_btn_wrap {
+  display: flex;
+  flex-direction: column;
+  button {
+    border: none;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    justify-content: space-between  ;
+    align-items: center;
+    padding: 12px;
+    cursor: pointer;
+  }
+}
