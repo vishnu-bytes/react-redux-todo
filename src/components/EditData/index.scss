@@ -1,0 +1,14 @@
+.edit_btn{
+    background-color: #58E88D;
+}
+.edit_wrap{
+    display: flex;
+    align-items: center;
+    h1{
+        margin-bottom: 0;
+    }
+    .anticon{
+        cursor: pointer!important;
+        margin-right: 12px;
+    }
+}

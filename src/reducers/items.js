@@ -14,9 +14,9 @@ const items = (state = [], action) => {
         item.id === action.id ? { ...item, completed: !item.completed } : item
       );
     case "EDIT_ITEM":
-      console.log(action);
+      console.log(state,action);
       return state.map((item) =>
-        item.id !== action.id ? { ...item, text: action.text } : item.id
+        item.id == action.id ? { ...item, text: action.text } : item
       );
     case "DLT_ITEM":
       return state.filter((item) => item.id !== action.id);
